@@ -11,10 +11,16 @@
         type="text/javascript"></script>
 		<script>
 			jQuery(document).ready(function () {
-				var mySrc = $('#webcam').attr('src');
+				var time = new Date();
+				var secs = time.getSeconds();
+				var src = $('#webcam').attr('src');
 				setInterval( function() {
-					$('#webcam').attr('src', mySrc+'?rand='+Math.random());
-				}, 60000 );
+					time = new Date();
+					secs = time.getSeconds();
+					if (secs == 30) {
+						$('#webcam').attr('src', src+'?rand='+Math.random());
+					}
+				}, 1000 );
 			});
 		</script>
 		<style type="text/css">
